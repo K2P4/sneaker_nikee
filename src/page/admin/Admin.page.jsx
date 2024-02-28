@@ -21,7 +21,7 @@ const AdminPage = () => {
 		const finder = localStorage.getItem("auth");
 
 		if (finder) {
-			nav("/dashboard");
+			nav("/");
 		}
 	}, []);
 
@@ -31,7 +31,7 @@ const AdminPage = () => {
 
 		if (AuthenticateData) {
 			localStorage.setItem("auth", JSON.stringify(AuthenticateData));
-			nav("/dashboard", { state: { AuthenticateData } });
+			nav("/", { state: { AuthenticateData } });
 		}
 	};
 

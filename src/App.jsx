@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import {
 	AdminPage,
 	CollectionsPage,
@@ -19,12 +19,14 @@ import "../node_modules/animate.css/animate.min.css";
 const App = () => {
 	const filterAuth = localStorage.getItem("auth");
 	const { toggle } = useContext(SneakerContext);
+	const nav = useNavigate();
 	
+
 	return (
 		<div className="  ">
 			{toggle && <AddtoCartPage />}
 			<div className="w-full h-screen mx-auto ">
-				{filterAuth && <NavComponent />}
+				{filterAuth ? <NavComponent /> : nav("/admin")}
 
 				<Routes>
 					<Route path="/admin" element={<AdminPage />} />
@@ -41,8 +43,6 @@ const App = () => {
 					<Route path="" element={<DashboardPage />} />
 				</Routes>
 			</div>
-
-			
 		</div>
 	);
 };
