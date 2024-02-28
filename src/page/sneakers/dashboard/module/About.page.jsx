@@ -32,7 +32,7 @@ const AboutPage = () => {
 				<h1 className=" text-orange-500  text-xl font-bold">Founder KP</h1>
 				<img
 					className="w-[90px] mt-2 rounded-full h-[90px] "
-					src="./../../../../../public/kp.jpg"
+					src="../../../../images/kp.jpg"
 					alt=""
 				/>
 
