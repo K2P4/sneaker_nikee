@@ -347,5 +347,14 @@
 			"email": "vik8312@gmail.com",
 			"password": "123456"
 		}
+	],
+
+	"personalimage": [
+		{
+			"image1": "../../public/kp.jpg",
+			"image2": "../../public/sneakers.png",
+			"image3": "../../public/undraw_empty_cart_co35.png",
+			"image4": "../../public/undraw_order_confirmed_re_g0if.svg"
+		}
 	]
 }

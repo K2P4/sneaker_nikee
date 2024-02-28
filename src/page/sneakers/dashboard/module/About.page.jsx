@@ -1,10 +1,14 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
+import useFetch from "../../../../hook/useFetch";
+import { ImageService } from "../../../../service/images.service";
 
 const AboutPage = () => {
+	const { data } = useFetch(ImageService, "personalimage");
+	console.log(data);
 	return (
 		<div id="about" className=" w-[64%] mx-auto h-screen ">
 			<div className="flex flex-col gap-3 align-middle items-center">
@@ -32,7 +36,7 @@ const AboutPage = () => {
 				<h1 className=" text-orange-500  text-xl font-bold">Founder KP</h1>
 				<img
 					className="w-[90px] mt-2 rounded-full h-[90px] "
-					src="../../../../images/kp.jpg"
+					src={data?.map((item) => item.image1)}
 					alt=""
 				/>
 
