@@ -20,7 +20,7 @@ const ContactPage = () => {
 							NIKEE
 							<img
 								className="w-10"
-								src="../../../../public/sneakers.png"
+								src="https://cdn-icons-png.flaticon.com/128/1785/1785348.png"
 								alt=""
 							/>
 						</div>

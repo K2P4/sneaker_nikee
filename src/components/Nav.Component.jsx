@@ -64,13 +64,15 @@ const NavComponent = () => {
 			<div className="w-[85%]       mx-auto  ">
 				<div className=" border-b border-b-gray-300  py-9  flex justify-between items-center   ">
 					<ul className=" flex  items-center gap-6 align-middle">
-						<li id="logo" className="text-xl   select-none tracking-wide  font-bold  text-orange-500">
+						<li
+							id="logo"
+							className="text-xl   select-none tracking-wide  font-bold  text-orange-500">
 							<Link to="/">
 								<div className="flex items-center gap-1">
 									NIKEE
 									<img
 										className="w-10"
-										src="../../../../public/sneakers.png"
+										src="https://cdn-icons-png.flaticon.com/128/1785/1785348.png"
 										alt=""
 									/>
 								</div>

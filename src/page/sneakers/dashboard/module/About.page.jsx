@@ -36,7 +36,7 @@ const AboutPage = () => {
 				<h1 className=" text-orange-500  text-xl font-bold">Founder KP</h1>
 				<img
 					className="w-[90px] mt-2 rounded-full h-[90px] "
-					src={data?.map((item) => item.image1)}
+					src="https://i.pinimg.com/564x/45/64/3b/45643ba701e67637d1ce4f2bd2547a2f.jpg"
 					alt=""
 				/>
 
