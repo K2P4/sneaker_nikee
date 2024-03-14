@@ -3,11 +3,24 @@
 import React, { useEffect, useState } from "react";
 
 const useFetch = (setFunction, arg) => {
-	const [data, setData] = useState({
+	const [apiData, setData] = useState({
 		data: null,
 		loading: true,
 		error: null,
 	});
+
+	// const apiFunction = async (formData) => {
+	// 	setData((pre) => ({ ...pre, loading: true }));
+	// 	const res = await setFunction(formData);
+	// 	console.log(res);
+
+
+	// 	if (res.error) {
+	// 		setData((pre) => ({ ...pre, loading: false, error: res.msg }));
+	// 	} else {
+	// 		setData((pre) => ({ ...pre, loading: false, data: res.data }));
+	// 	}
+	// };
 
 	useEffect(() => {
 		(async () => {
@@ -21,7 +34,7 @@ const useFetch = (setFunction, arg) => {
 							data: data,
 						};
 					});
-				},2000);
+				}, 2000);
 			} catch (e) {
 				setData((pre) => {
 					return {
@@ -34,7 +47,9 @@ const useFetch = (setFunction, arg) => {
 		})();
 	}, []);
 
-	return data;
+	
+
+	return apiData;
 };
 
 export default useFetch;

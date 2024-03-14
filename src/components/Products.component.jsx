@@ -6,14 +6,13 @@ import { useNavigate } from "react-router-dom";
 const ProductsComponent = ({ item }) => {
 	const nav = useNavigate();
 	const handleDetail = () => {
-		nav(`/detail/${item.id}`, { state: { item } });
+		nav(`/dashboard/detail/${item.id}`, { state: { item } });
 	};
 	return (
 		<div className=" ">
-			
 			<div onClick={handleDetail} key={item.id} className=" group   ">
 				<img
-					className="  group-hover:hover:border-orange-500  group-hover:border  bg-gray-50   p-1    hover:transition-transform hover:duration-700  group-hover:rotate-3  group-hover:object-center animate__animated animate__fadeIn  duration-500 transition-shadow  rounded-lg  w-[250px] object-cover  h-[250px] "
+					className="  group-hover:hover:border-orange-500   border   p-1    hover:transition-transform hover:duration-700  group-hover:rotate-3  group-hover:object-center animate__animated animate__fadeIn  duration-500 transition-shadow  rounded-lg  w-[250px] object-cover  h-[250px] "
 					src={item.images.image1}
 					alt=""
 				/>

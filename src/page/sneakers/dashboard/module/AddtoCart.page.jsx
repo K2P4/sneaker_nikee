@@ -12,7 +12,7 @@ const AddtoCartPage = () => {
 
 	const handleBack = () => {
 		setToggle(false);
-		nav("/collections");
+		nav("/dashboard/collections");
 	};
 
 	const toggleOrder = () => {
@@ -85,7 +85,7 @@ const AddtoCartPage = () => {
 							{order && (
 								<img
 									className=" duration-500 mt-10 w-full h-[50%]  animate__animated animate__bounceIn "
-									src="../../../../../public/undraw_order_confirmed_re_g0if.svg"
+									src="https://img.freepik.com/free-vector/confirmed-concept-illustration_114360-545.jpg?t=st=1710418226~exp=1710421826~hmac=5e5b9f614c3a4dfa936c258b73c395cbde341c18a5851db42a13c7de14382af4&w=740"
 									alt=""
 								/>
 							)}

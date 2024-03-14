@@ -14,6 +14,7 @@ import {
 	EffectCoverflow,
 } from "swiper/modules";
 import "../../node_modules/swiper/swiper-bundle.min.css";
+import HomeLoadingComponent from "./HomeLoading.component";
 
 const HomeCarouselComponent = () => {
 	const { data, loading } = useContext(SneakerContext);
@@ -24,7 +25,7 @@ const HomeCarouselComponent = () => {
 	return (
 		<div className="">
 			{loading ? (
-				<h1>loading</h1>
+				<HomeLoadingComponent />
 			) : (
 				<div className=" my-16  ">
 					<div className="text-orange-500     font-bold text-center">
@@ -51,12 +52,12 @@ const HomeCarouselComponent = () => {
 							slideShadows: true,
 						}}
 						scrollbar={{ draggable: true }}
-						onSwiper={(swiper) => console.log(swiper)}
+						// onSwiper={(swiper) => console.log(swiper)}
 						onSlideChange={() => console.log("slide change")}>
 						{data?.map((item) => (
 							<SwiperSlide key={item.id}>
 								<div
-									onClick={() => nav(`/detail/${item.id}`)}
+									onClick={() => nav(`/dashboard/detail/${item.id}`)}
 									className="flex relative w-full h-[280px]  items-center    align-middle ">
 									<img
 										className=" w-[350px] object-cover h-[280px]  rounded-lg  "
@@ -95,16 +96,3 @@ const HomeCarouselComponent = () => {
 
 export default HomeCarouselComponent;
 
-{
-	/* <div className="flex items-center overflow-x-scroll gap-5  ">
-					{data.map((item) => (
-						<div className=" " key={item.id}>
-							<img
-								className="w-[300px] object-cover h-[300px] "
-								src={item.images.image2}
-								alt=""
-							/>
-						</div>
-					))}
-				</div> */
-}

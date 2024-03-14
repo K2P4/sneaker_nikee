@@ -10,7 +10,7 @@ const EmptyComponent = () => {
 
 	const handleBack = () => {
 		setToggle(false);
-		nav("/collections");
+		nav("/dashboard/collections");
 	};
 	return (
 		<div>

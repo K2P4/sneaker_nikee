@@ -30,7 +30,7 @@ const CollectionsPage = () => {
 						<ProductsComponent item={item} key={item.id} />
 					))}
 				</div>
-			)}
+		)}
 		</div>
 	);
 };

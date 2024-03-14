@@ -8,6 +8,7 @@ import {
 	DashboardPage,
 	DetailPage,
 	MenPage,
+	RegisterPage,
 	SearchPage,
 	WomenPage,
 } from "./page";
@@ -20,27 +21,26 @@ const App = () => {
 	const filterAuth = localStorage.getItem("auth");
 	const { toggle } = useContext(SneakerContext);
 	const nav = useNavigate();
-	
 
 	return (
 		<div className="  ">
 			{toggle && <AddtoCartPage />}
 			<div className="w-full h-screen mx-auto ">
-				{filterAuth ? <NavComponent /> : nav("/admin")}
-
 				<Routes>
-					<Route path="/admin" element={<AdminPage />} />
-					<Route path="/search/:name" element={<SearchPage />} />
+					<Route path="/" element={<AdminPage />} />
+					<Route path="/register" element={<RegisterPage />} />
 
-					{/* <Route path="/addtocart" element={<AddtoCartPage />} /> */}
-					<Route path="/detail/:id" element={<DetailPage />} />
-					<Route path="/collections" index element={<CollectionsPage />} />
-					<Route path="/men" index element={<MenPage />} />
-					<Route path="/women" index element={<WomenPage />} />
-					{/* <Route path="/addtocart" index element={<AddtoCartPage />} /> */}
 					<Route path="*" index element={<ErrorComponent />} />
 
-					<Route path="" element={<DashboardPage />} />
+					<Route path="/dashboard" element={<NavComponent />}>
+						<Route index element={<DashboardPage />} />
+						<Route path="men" index element={<MenPage />} />
+						<Route path="women" index element={<WomenPage />} />
+
+						<Route path="collections" index element={<CollectionsPage />} />
+						<Route path="detail/:id" element={<DetailPage />} />
+						<Route path="search/:name" element={<SearchPage />} />
+					</Route>
 				</Routes>
 			</div>
 		</div>

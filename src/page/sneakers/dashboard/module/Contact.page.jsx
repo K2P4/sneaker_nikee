@@ -13,7 +13,7 @@ import { FaArrowAltCircleUp } from "react-icons/fa";
 const ContactPage = () => {
 	return (
 		<div className="">
-			<div className=" flex items-start   gap-44 border-b-gray-500 pb-4  border-b ">
+			<div className=" flex items-start    gap-44 border-b-gray-500 pb-4  border-b ">
 				<div className="">
 					<div className="flex flex-col ">
 						<div className="flex items-center text-xl   select-none tracking-wide  font-bold  text-orange-500 gap-1">

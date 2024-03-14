@@ -18,5 +18,15 @@
 } */
 
 body {
+	background-color: rgb(240, 240, 240);
+}
+
+slideColor {
 	background-color: rgb(236, 233, 233);
+}
+
+@layer components {
+	.Center {
+		@apply w-[40%]  m-auto flex   flex-col space-y-5  justify-center  h-screen;
+	}
 }
