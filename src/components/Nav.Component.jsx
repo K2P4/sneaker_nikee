@@ -75,9 +75,9 @@ const NavComponent = () => {
 
 	return (
 		<div>
-			<div className="w-[85%]       mx-auto  ">
-				<div className=" border-b border-b-gray-300  py-9  flex justify-between items-center   ">
-					<ul className=" flex  items-center gap-6 align-middle">
+			<div className=" w-[95%]   sm:w-[85%]    mx-auto  ">
+				<div className=" border-b border-b-gray-300  py-4 sm:py-9  flex justify-between items-center   ">
+					<ul className=" sm:flex   hidden   items-center gap-6 align-middle">
 						<li
 							id="logo"
 							className="text-xl   select-none tracking-wide  font-bold  text-orange-500">
@@ -116,13 +116,175 @@ const NavComponent = () => {
 						</li>
 					</ul>
 
-					<div className="flex gap-4 select-none items-center ">
+					<div className=" flex sm:hidden ">
+						<h2
+							onClick={() => nav("/dashboard")}
+							className="flex items-center  gap-1 text-orange-500 text-xl font-bold">
+							NIKEE
+							<img
+								className="w-9"
+								src="https://cdn-icons-png.flaticon.com/128/1785/1785348.png"
+								alt=""
+							/>
+						</h2>
+
+						<div
+							id="drawer-navigation"
+							className="fixed  top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800"
+							tabIndex="-1"
+							aria-labelledby="drawer-navigation-label">
+							<h5
+								id="drawer-navigation-label"
+								className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">
+								Menu
+							</h5>
+							<button
+								type="button"
+								data-drawer-hide="drawer-navigation"
+								aria-controls="drawer-navigation"
+								className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+								<svg
+									className="w-3 h-3"
+									aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 14 14">
+									<path
+										stroke="currentColor"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+									/>
+								</svg>
+								<span className="sr-only">Close menu</span>
+							</button>
+							<div className="py-4 overflow-y-auto">
+								<ul className="space-y-2 font-medium">
+									<li>
+										<a
+											onClick={handleDashboard}
+											className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+											<svg
+												className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												fill="currentColor"
+												viewBox="0 0 22 21">
+												<path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+												<path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+											</svg>
+											<span className="ms-3">Dashboard</span>
+										</a>
+									</li>
+									<li>
+										<button
+											type="button"
+											className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+											aria-controls="dropdown-example"
+											data-collapse-toggle="dropdown-example">
+											<svg
+												className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												fill="currentColor"
+												viewBox="0 0 18 21">
+												<path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
+											</svg>
+											<span className="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
+												E-commerce
+											</span>
+											<svg
+												className="w-3 h-3"
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 10 6">
+												<path
+													stroke="currentColor"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
+													d="m1 1 4 4 4-4"
+												/>
+											</svg>
+										</button>
+										<ul id="dropdown-example" className="hidden py-2 space-y-2">
+											<li>
+												<a
+													onClick={() => nav("/dashboard/collections")}
+													className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+													Products
+												</a>
+											</li>
+										</ul>
+									</li>
+
+									<li>
+										<a
+											onClick={() => nav("/dashboard/men")}
+											className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+											<svg
+												className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												fill="currentColor"
+												viewBox="0 0 20 18">
+												<path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+											</svg>
+											<span className="flex-1 ms-3 whitespace-nowrap">Men</span>
+										</a>
+									</li>
+									<li>
+										<a
+											onClick={() => nav("/dashboard/women")}
+											className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+											<svg
+												className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												fill="currentColor"
+												viewBox="0 0 20 18">
+												<path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+											</svg>
+											<span className="flex-1 ms-3 whitespace-nowrap">
+												Women
+											</span>
+										</a>
+									</li>
+
+									<li>
+										<a onClick={handleLogout} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+											<svg
+												className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 18 16">
+												<path
+													stroke="currentColor"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
+													d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
+												/>
+											</svg>
+											<span className="flex-1 ms-3 whitespace-nowrap">
+												Sign Out
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div className=" flex   sm:gap-4 select-none items-center ">
 						<form
 							onSubmit={handleSubmit}
 							action="
 						">
 							<div
-								className="flex border-slate-200 border  px-2   items-center  
+								className="sm:flex hidden border-slate-200 sm:border border-b  px-2   items-center  
 						 rounded-md  ">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -141,44 +303,67 @@ const NavComponent = () => {
 								<input
 									value={search}
 									onChange={(e) => setSearch(e.target.value)}
-									className="w-[90px] text-sm tracking-wide bg-transparent  border-0 focus:ring-0  text-md  "
+									className="w-[40px] sm:w-[90px] text-sm tracking-wide bg-transparent  border-0 focus:ring-0  text-md  "
 									type="text"
 									name="email"
 								/>
 							</div>
 						</form>
-						<div
-							onClick={click}
-							className="relative duration-500 active:scale-90 ">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								strokeWidth={1.5}
-								stroke="currentColor"
-								className="w-7 h-7">
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-								/>
-							</svg>
+						<div className="flex items-center gap-3">
+							<div className="relative flex items-center gap-3 sm:gap-0 duration-500 active:scale-90 ">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									onClick={click}
+									strokeWidth={1.5}
+									stroke="currentColor"
+									className=" w-7 h-7">
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+									/>
+								</svg>
 
-							<span className="w-4 absolute top-0 -end-1  h-4   text-center mx-auto text-xs font-semibold text-white bg-orange-500 rounded-full ">
-								{cart.length}
-							</span>
+								<span className="w-4 absolute top-0 -end-1  h-4   text-center mx-auto text-xs font-semibold text-white bg-orange-500 rounded-full ">
+									{cart.length}
+								</span>
+							</div>
+							<div className="flex sm:hidden text-center">
+								<button
+									className=" text-xl  flex  tracking-wide items-center gap-1 font-bold "
+									type="button"
+									data-drawer-target="drawer-navigation"
+									data-drawer-show="drawer-navigation"
+									aria-controls="drawer-navigation">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										strokeWidth={1.5}
+										stroke="currentColor"
+										className="w-7 h-7">
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+										/>
+									</svg>
+								</button>
+							</div>
 						</div>
 
 						<button
 							id="dropdownInformationButton"
 							data-dropdown-toggle="dropdownInformation"
-							className="text-white bg-gray-400  hover:bg-gray-500  focus:outline-none font-medium rounded-md text-sm px-4  py-2 text-center inline-flex items-center "
+							className="text-white hidden bg-gray-400  hover:bg-gray-500  focus:outline-none font-medium rounded-md text-sm px-4  py-2 text-center sm:inline-flex items-center "
 							type="button">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 24 24"
 								fill="currentColor"
-								className="w-6 h-6">
+								className="   sm:w-6 sm:h-6 w-5 h-5 ">
 								<path
 									fillRule="evenodd"
 									d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"

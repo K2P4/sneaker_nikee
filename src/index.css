@@ -30,3 +30,11 @@ slideColor {
 		@apply w-[40%]  m-auto flex   flex-col space-y-5  justify-center  h-screen;
 	}
 }
+
+
+@layer components {
+	.Mobile {
+		@apply w-[90%]  m-auto flex   flex-col space-y-5  justify-center  h-screen;
+	}
+}
+

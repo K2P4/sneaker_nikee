@@ -32,9 +32,9 @@ const RegisterPage = () => {
 
 	return (
 		<div className="">
-			<div className=" Center ">
-				<div className=" border  p-5 rounded-md border-gray-300">
-					<h1 className="text-2xl font-bold text-orange-400 ">
+			<div className=" Mobile  md:Center ">
+				<div className=" border  sm:p-5 p-4 rounded-md border-gray-300">
+					<h1 className=" sm:text-2xl text-xl font-bold text-orange-400 ">
 						Register Your Account
 					</h1>
 

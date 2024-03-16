@@ -27,11 +27,13 @@ const HomeCarouselComponent = () => {
 			{loading ? (
 				<HomeLoadingComponent />
 			) : (
-				<div className=" my-16  ">
+				<div className=" my-4 sm:my-16  ">
 					<div className="text-orange-500     font-bold text-center">
-						<h1 className="text-3xl aboutFont tracking-wide">New Release </h1>
+						<h1 className="sm:text-3xl text-2xl aboutFont tracking-wide">
+							New Release{" "}
+						</h1>
 
-						<h1 className="text-xl   aboutFont mt-2 text-orange-600 tracking-wide">
+						<h1 className=" text-xl   aboutFont mt-1 sm:mt-2 text-orange-600 tracking-wide">
 							Products
 						</h1>
 					</div>
@@ -58,9 +60,9 @@ const HomeCarouselComponent = () => {
 							<SwiperSlide key={item.id}>
 								<div
 									onClick={() => nav(`/dashboard/detail/${item.id}`)}
-									className="flex relative w-full h-[280px]  items-center    align-middle ">
+									className="flex relative w-full sm:h-[280px] h-[120px] items-center    align-middle ">
 									<img
-										className=" w-[350px] object-cover h-[280px]  rounded-lg  "
+										className=" sm:w-[350px] h-[120px] w-full  object-cover sm:h-[280px]  rounded-lg  "
 										src={item?.images.image1}
 										alt=""
 									/>
@@ -95,4 +97,3 @@ const HomeCarouselComponent = () => {
 };
 
 export default HomeCarouselComponent;
-

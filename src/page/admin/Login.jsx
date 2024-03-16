@@ -46,9 +46,9 @@ const AdminPage = () => {
 
 	return (
 		<div className="">
-			<div className=" Center ">
-				<div className=" border-gray-300 p-6 rounded-sm border-2">
-					<h1 className="text-2xl text-orange-400 font-bold ">
+			<div className=" Mobile md:Center ">
+				<div className=" border-slate-200 sm:p-6 p-5 rounded-sm border-2">
+					<h1 className=" sm:text-2xl  tex-xl  text-orange-400 font-bold ">
 						Log In Your Account
 					</h1>
 
@@ -73,7 +73,7 @@ const AdminPage = () => {
 						<ButtonComponent type={"submit"} name={"login"} label={"LOG IN"} />
 					</form>
 
-					<p className="  mt-5  text-sm">
+					<p className="  mt-5 sm:text-sm  text-xs">
 						You Don't Have Account Register{" "}
 						<span
 							onClick={() => nav("/register")}
