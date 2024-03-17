@@ -14,6 +14,7 @@ const NavComponent = () => {
 	// const {
 	// 	state : { AuthenticateData },
 	// } = useLocation();
+	const [toggle, settoggle] = useState(false);
 
 	const nav = useNavigate();
 	const {
@@ -25,6 +26,10 @@ const NavComponent = () => {
 		setToggle,
 		SetHiddenIcon,
 	} = useContext(SneakerContext);
+
+	const toggleMenu = () => {
+		settoggle(!toggle);
+	};
 
 	useEffect(() => {
 		const checkingAuth = localStorage.getItem("auth");
@@ -64,6 +69,11 @@ const NavComponent = () => {
 	const handleAddToCart = () => {
 		SetHiddenIcon(true);
 		nav("/addtocart");
+	};
+
+	const handelCloseMenu = () => {
+		nav(-1);
+		settoggle(!toggle);
 	};
 
 	useEffect(() => {
@@ -127,24 +137,19 @@ const NavComponent = () => {
 								alt=""
 							/>
 						</h2>
+					</div>
 
-						<div
-							id="drawer-navigation"
-							className="fixed  top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800"
-							tabIndex="-1"
-							aria-labelledby="drawer-navigation-label">
-							<h5
-								id="drawer-navigation-label"
-								className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">
+					{toggle && (
+						<div className="fixed  duration-700   animate__animated  animate__bounceInLeft  top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform  bg-white w-64 dark:bg-gray-800">
+							<h5 className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">
 								Menu
 							</h5>
 							<button
 								type="button"
-								data-drawer-hide="drawer-navigation"
-								aria-controls="drawer-navigation"
 								className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
 								<svg
 									className="w-3 h-3"
+									onClick={handelCloseMenu}
 									aria-hidden="true"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -157,7 +162,6 @@ const NavComponent = () => {
 										d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
 									/>
 								</svg>
-								<span className="sr-only">Close menu</span>
 							</button>
 							<div className="py-4 overflow-y-auto">
 								<ul className="space-y-2 font-medium">
@@ -258,7 +262,8 @@ const NavComponent = () => {
 								</ul>
 							</div>
 						</div>
-					</div>
+					)}
+
 					<div className=" flex   sm:gap-4 select-none items-center ">
 						<form
 							onSubmit={handleSubmit}
@@ -324,6 +329,7 @@ const NavComponent = () => {
 										viewBox="0 0 24 24"
 										strokeWidth={1.5}
 										stroke="currentColor"
+										onClick={toggleMenu}
 										className="w-7 h-7">
 										<path
 											strokeLinecap="round"
