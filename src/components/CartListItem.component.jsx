@@ -15,27 +15,21 @@ const CartListItemComponent = ({
 
 	return (
 		<div className="mt-8 flex items-start justify-between gap-1 ">
-			<div className="flex gap-3 group align-middle  items-start   ">
+			<div className="flex  gap-2 sm:gap-3 group align-middle  items-start   ">
 				<img
 					className="w-[110px] select-none rounded-md  h-[110px] object-cover "
 					src={image}
 					alt=""
 				/>
-				<div className="w-[200px]  ">
-					<h4 className="text-sm mt-1 text-orange-500 font-semibold line-clamp-1 ">
+				<div className="sm:w-[200px] w-[180px] ">
+					<h4 className="text-sm mt-1 text-orange-500 font-semibold sm:line-clamp-1 ">
 						{name}
 					</h4>
-					
-					
-						<p className=" text-sm mt-2 font-medium text-gray-700 ">
-							{
-								discount ?  `$  ${discount.toFixed(2)}` : `$ ${price.toFixed(2)}`
-							}
-						</p>
-				
-					
-					
-					
+
+					<p className=" text-sm mt-2 font-medium text-gray-700 ">
+						{discount ? `$  ${discount.toFixed(2)}` : `$ ${price.toFixed(2)}`}
+					</p>
+
 					<svg
 						onClick={removeCart}
 						xmlns="http://www.w3.org/2000/svg"

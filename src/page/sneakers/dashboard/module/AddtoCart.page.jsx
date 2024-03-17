@@ -24,10 +24,9 @@ const AddtoCartPage = () => {
 	}, 0);
 	console.log(costTotal);
 
-
 	return (
 		<div>
-			<div className="fixed overflow-scroll  animate__animated animate__bounceInRight  z-10 top-0 end-0 bg-gray-50  border   w-[25%] h-screen mx-auto ">
+			<div className="fixed overflow-scroll  animate__animated animate__bounceInRight  z-10 top-0 end-0 bg-gray-50  border  w-[70%]  sm:w-[25%] h-screen mx-auto ">
 				<div className="px-3 mt-5">
 					{cart.length == 0 && <EmptyComponent />}
 
@@ -47,7 +46,7 @@ const AddtoCartPage = () => {
 										d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
 									/>
 								</svg>
-								<h2 className=" font-semibold text-1xl tracking-normal ">
+								<h2 className=" text-xs font-semibold sm:text-1xl sm:tracking-normal ">
 									{" "}
 									List Of Added Sneaker
 								</h2>
@@ -55,14 +54,14 @@ const AddtoCartPage = () => {
 
 							<button
 								onClick={handleBack}
-								className="border duration-500     active:scale-95 rounded-sm  hover:bg-slate-100 ">
+								className="border duration-500    p-1 sm:p-0  active:scale-95 rounded-sm  hover:bg-slate-100 ">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									strokeWidth={1.5}
 									stroke="currentColor"
-									className="w-7 h-7">
+									className="w-5 h-5 sm:w-7 sm:h-7">
 									<path
 										strokeLinecap="round"
 										strokeLinejoin="round"

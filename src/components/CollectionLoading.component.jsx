@@ -7,7 +7,7 @@ const CollectionLoadingComponent = () => {
 	
 			<div
 				role="status"
-				className="flex flex-row w-[30%]  items-center justify-center h-56 max-w-sm bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+				className="flex w-[90%] flex-row sm:w-[30%]  items-center justify-center h-56 max-w-sm bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
 				<svg
 					className="w-10 h-10 text-gray-200 dark:text-gray-600"
 					aria-hidden="true"
