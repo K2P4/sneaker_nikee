@@ -47,6 +47,22 @@ const NavComponent = () => {
 
 	const handleDashboard = () => {
 		nav("/dashboard");
+		settoggle(!toggle);
+	};
+
+	const handleCollections = () => {
+		nav("/dashboard/collections");
+		settoggle(!toggle);
+	};
+
+	const handleMen = () => {
+		nav("/dashboard/men");
+		settoggle(!toggle);
+	};
+
+	const handleWomen = () => {
+		nav("/dashboard/women");
+		settoggle(!toggle);
 	};
 
 	const handleSubmit = (event) => {
@@ -183,7 +199,7 @@ const NavComponent = () => {
 									</li>
 									<li>
 										<a
-											onClick={() => nav("/dashboard/collections")}
+											onClick={handleCollections}
 											className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +221,7 @@ const NavComponent = () => {
 
 									<li>
 										<a
-											onClick={() => nav("/dashboard/men")}
+											onClick={handleMen}
 											className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 											<svg
 												className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -220,7 +236,7 @@ const NavComponent = () => {
 									</li>
 									<li>
 										<a
-											onClick={() => nav("/dashboard/women")}
+											onClick={handleWomen}
 											className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 											<svg
 												className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
