@@ -2,6 +2,8 @@
 
 import React, { useContext } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+
 import {
 	AdminPage,
 	CollectionsPage,

@@ -9,6 +9,7 @@ import { FiPhone } from "react-icons/fi";
 import { LuMapPin } from "react-icons/lu";
 import { IoMdMail } from "react-icons/io";
 import { FaArrowAltCircleUp } from "react-icons/fa";
+
 import { CiTwitter } from "react-icons/ci";
 
 const ContactPage = () => {
