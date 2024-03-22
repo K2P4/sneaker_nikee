@@ -5,9 +5,17 @@ import { useNavigate } from "react-router-dom";
 import FormComponent from "../../components/Form.component";
 import { ButtonComponent } from "../../components";
 import { Register } from "../../service/auth.service";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const RegisterPage = () => {
 	const nav = useNavigate();
+
+	const initialValue = {
+		username: "",
+		email: "",
+		password: "",
+		confirm_password: "",
+	};
 
 	const [formData, setFormData] = useState({
 		username: "",
@@ -18,6 +26,13 @@ const RegisterPage = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		const conditionPassword = passwordRegex.test(formData.password);
+		const conditionConfirnpassword = passwordRegex.test(
+			formData.confirm_password
+		);
+
+		console.log(conditionPassword);
 
 		const res = await Register("user", formData);
 

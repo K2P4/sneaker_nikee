@@ -132,13 +132,11 @@ const NavComponent = () => {
 						</li>
 
 						<li className="text-gray-500 tracking-wide select-none active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
-							<a className=" duration-1000 " target="" href="#about">
-								About
-							</a>
+							<a href="#about">About</a>
 						</li>
 
 						<li className="text-gray-500 tracking-wide select-none active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
-							<NavLink>Contact</NavLink>
+							<a href="#contact">Contact</a>
 						</li>
 					</ul>
 

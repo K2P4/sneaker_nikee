@@ -28,12 +28,12 @@ const HomeCarouselComponent = () => {
 				<HomeLoadingComponent />
 			) : (
 				<div className=" my-4 sm:my-16  ">
-					<div className="text-orange-500     font-bold text-center">
-						<h1 className="sm:text-3xl text-2xl aboutFont tracking-wide">
+					<div className="text-orange-500  bodyFont   font-bold text-center">
+						<h1 className="sm:text-3xl text-2xl      tracking-wide">
 							New Release{" "}
 						</h1>
 
-						<h1 className=" text-xl   aboutFont mt-1 sm:mt-2 text-orange-600 tracking-wide">
+						<h1 className=" text-2xl   aboutFont mt-1 sm:mt-2 text-orange-600 tracking-wide">
 							Products
 						</h1>
 					</div>

@@ -45,14 +45,14 @@ const DashboardPage = () => {
 							<CarouselContent>
 								{data?.map((item) => (
 									<CarouselItem>
-										<div className="flex w-full duration-700 flex-col items-center sm:flex-row h-[200px] sm:h-[320px] sm:items-start    align-middle ">
+										<div className="flex w-full my-5 sm:my-0 duration-700 flex-col items-center sm:flex-row h-[200px] sm:h-[320px] sm:items-start    align-middle ">
 											<img
-												className="w-full h-[130px] sm:w-[45%] sm:h-[320px] object-cover   rounded-sm  "
+												className="w-[90%] h-[130px] sm:w-[45%] sm:h-[320px] object-cover   rounded-sm  "
 												src={item?.images.image1}
 												alt=""
 											/>
 
-											<div className=" bg-gray-100 sm:h-[320px] w-full   px-4  sm:w-[60%]">
+											<div className=" w-[90%] bg-gray-100 sm:h-[320px]  px-4  sm:w-[60%]">
 												<div className="mt-2 ">
 													<h3 className="text-orange-500 text-center sm:text-left sm:text-3xl  line-clamp-1 sm:line-clamp-none  text-xl  font-bold  ">
 														{item.name}
@@ -75,16 +75,13 @@ const DashboardPage = () => {
 							<CarouselNext className="hover:bg-orange-400" />
 						</Carousel>
 					)}
+					<HomeCarouselComponent />
 
-					<div className="">
-						<HomeCarouselComponent />
-					</div>
+					<AboutPage />
 
-					<div className="  ">
-						<AboutPage />
-					</div>
-
-					<div className="    w-full    sm:bg-stone-100 px-3 py-5 rounded-lg  ">
+					<div
+						id="contact"
+						className="    w-full    sm:bg-stone-100 px-3 py-5 rounded-lg  ">
 						<ContactPage />
 					</div>
 				</div>

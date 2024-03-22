@@ -28,6 +28,7 @@ export const Login = async (arg, form) => {
 export const Register = async (arg, formData) => {
 	try {
 		const res = await sneakerApi.post(arg, formData);
+
 		console.log(res);
 		return res;
 	} catch (e) {

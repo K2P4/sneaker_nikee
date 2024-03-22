@@ -5,6 +5,7 @@ import { SneakerContext } from "../../service/store/SneakerContextProvider";
 import { Login } from "../../service/auth.service";
 import { useNavigate } from "react-router-dom";
 import FormComponent from "../../components/Form.component";
+
 import {
 	ButtonComponent,
 	ErrorComponent,
@@ -46,8 +47,8 @@ const AdminPage = () => {
 
 	return (
 		<div className="">
-			<div className=" Mobile md:Center ">
-				<div className=" border-slate-200 sm:p-6 p-5 rounded-sm border-2">
+			<div className=" Mobile m-auto md:Center ">
+				<div className="   sm:p-6 p-5 rounded-lg border">
 					<h1 className=" sm:text-2xl  tex-xl  text-orange-400 font-bold ">
 						Log In Your Account
 					</h1>

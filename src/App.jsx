@@ -5,6 +5,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 import {
+	AboutPage,
 	AdminPage,
 	CollectionsPage,
 	DashboardPage,
@@ -36,6 +37,7 @@ const App = () => {
 
 					<Route path="/dashboard" element={<NavComponent />}>
 						<Route index element={<DashboardPage />} />
+						
 						<Route path="men" index element={<MenPage />} />
 						<Route path="women" index element={<WomenPage />} />
 

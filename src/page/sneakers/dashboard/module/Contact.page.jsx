@@ -80,7 +80,7 @@ const ContactPage = () => {
 					</p>
 
 					<div
-						className="flex w-[90%] border-slate-500 mt-4 justify-between border  px-2   items-center  
+						className="flex w-[90%] text-sm border-slate-500 mt-4 justify-between border  px-2   items-center  
 						 rounded-md  ">
 						<input
 							placeholder="Email"
@@ -89,7 +89,7 @@ const ContactPage = () => {
 							name="email"
 						/>
 
-						<IoMdMail className="text-xl" />
+						<IoMdMail className=" text-5xl sm:text-xl" />
 					</div>
 
 					<button className=" hidden  sm:flex align-middle  items-center gap-2  font-medium bg-orange-500 rounded-md mt-3 active:scale-95 text-white px-3 py-2">
