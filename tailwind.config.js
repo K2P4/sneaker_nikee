@@ -17,11 +17,11 @@ module.exports = {
 			},
 		},
 		extend: {
-			keyframes: {
-				fontFamily: {
+			fontFamily: {
 					sans: ["Montserrat", "sans-serif"],
 					serif: ["Roboto"],
 				},
+			keyframes: {
 				"accordion-down": {
 					from: { height: "0" },
 					to: { height: "var(--radix-accordion-content-height)" },
