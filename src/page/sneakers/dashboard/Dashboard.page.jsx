@@ -20,22 +20,16 @@ import ContactPage from "./module/Contact.page";
 import {
 	DashboardLoadingComponent,
 	LoadingComponent,
-	PreventComponent,
 } from "../../../components";
+import AuthGuard from "../../../components/guard/AuthGuard";
 
 const DashboardPage = () => {
 	const { data, loading } = useFetch(MenSneakerService, "men");
 	const nav = useNavigate();
 
-	// useEffect(() => {
-	// 	const checkingAuth = localStorage.getItem("auth");
-	// 	if (!checkingAuth) {
-	// 		nav("/");
-	// 	}
-	// });
 
 	return (
-		<PreventComponent>
+		<AuthGuard>
 			<div className="">
 				<div className="w-[85%]   h-screen  sm:my-10 mx-auto select-none ">
 					{loading ? (
@@ -86,7 +80,7 @@ const DashboardPage = () => {
 					</div>
 				</div>
 			</div>
-		</PreventComponent>
+		</AuthGuard>
 	);
 };
 

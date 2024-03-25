@@ -12,7 +12,8 @@ const SneakerContextProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 	const [toggle, setToggle] = useState(false);
 	const [filterCart, setFilterCart] = useState([]);
-
+	const [aboutToggle, setaboutToggle] = useState(false);
+	const [contactToggle, setContactToggle] = useState(false);
 	const [disabled, setDisabled] = useState(false);
 	const [hiddenIcon, SetHiddenIcon] = useState(false);
 	const [isChecked, setChecked] = useState(false);
@@ -81,6 +82,8 @@ const SneakerContextProvider = ({ children }) => {
 			<SneakerContext.Provider
 				value={{
 					setDisabled,
+					setContactToggle,
+					contactToggle,
 					filterCart,
 					setFilterCart,
 					setToggle,
@@ -101,6 +104,8 @@ const SneakerContextProvider = ({ children }) => {
 					cart,
 					toggleDelete,
 					toggleAddRemove,
+					setaboutToggle,
+					aboutToggle,
 				}}>
 				{children}
 			</SneakerContext.Provider>

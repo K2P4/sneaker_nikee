@@ -37,11 +37,11 @@ const App = () => {
 
 					<Route path="/dashboard" element={<NavComponent />}>
 						<Route index element={<DashboardPage />} />
-						
-						<Route path="men" index element={<MenPage />} />
-						<Route path="women" index element={<WomenPage />} />
 
-						<Route path="collections" index element={<CollectionsPage />} />
+						<Route path="men" element={<MenPage />} />
+						<Route path="women" element={<WomenPage />} />
+
+						<Route path="collections" element={<CollectionsPage />} />
 						<Route path="detail/:id" element={<DetailPage />} />
 						<Route path="search/:name" element={<SearchPage />} />
 					</Route>

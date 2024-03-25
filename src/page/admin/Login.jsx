@@ -2,88 +2,119 @@
 
 import React, { useContext, useEffect, useState } from "react";
 import { SneakerContext } from "../../service/store/SneakerContextProvider";
-import { Login } from "../../service/auth.service";
 import { useNavigate } from "react-router-dom";
 import FormComponent from "../../components/Form.component";
+import { ButtonComponent, ErrorComponent } from "../../components";
+import * as yup from "yup";
 
-import {
-	ButtonComponent,
-	ErrorComponent,
-	PreventComponent,
-} from "../../components";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useSigninMutation } from "../../service/endpoints/AuthEndpoints";
+import AuthGuard from "../../components/guard/AuthGuard";
 
 const AdminPage = () => {
-	const { isChecked, disabled, handleCheckBox } = useContext(SneakerContext);
-
-	console.log(isChecked);
-
-	const [formData, setFormData] = useState({ email: "", password: "" });
-
+	const [fun, data] = useSigninMutation();
 	const nav = useNavigate();
+	// const { isChecked, disabled, handleCheckBox } = useContext(SneakerContext);
 
-	useEffect(() => {
-		const finder = localStorage.getItem("auth");
-
-		if (finder) {
-			nav("/dashboard");
-		}
-	}, []);
-
-	const handleInputChange = (e) => {
-		setFormData((pre) => ({ ...pre, [e.target.name]: e.target.value }));
+	const initailValue = {
+		email: "",
+		password: "",
 	};
 
-	const formSubmit = async (e) => {
-		e.preventDefault();
-		const AuthenticateData = await Login("user", formData);
+	const validationSchema = yup.object({
+		email: yup
+			.string()
+			.required("email is required")
+			.email("invalid email format"),
+		password: yup
+			.string()
+			.required("password is required")
+			.min(8, "password shold be 8 letters"),
+	});
 
-		console.log(AuthenticateData);
-
-		if (AuthenticateData) {
-			localStorage.setItem("auth", JSON.stringify(AuthenticateData));
-			nav("/dashboard", { state: { AuthenticateData } });
+	useEffect(() => {
+		if (data?.data?.success) {
+			nav("/dashboard");
 		}
+	}, [data]);
+
+	const handleSubmit = async (value, action) => {
+		console.log(value);
+
+		await fun(value);
+
+		
+		action.reset();
 	};
 
 	return (
 		<div className="">
-			<div className=" Mobile m-auto md:Center ">
-				<div className="   sm:p-6 p-5 rounded-lg border">
-					<h1 className=" sm:text-2xl  tex-xl  text-orange-400 font-bold ">
-						Log In Your Account
-					</h1>
+			<AuthGuard check={data?.data?.success} token={data?.data?.token}>
+				<Formik
+					validateOnChange={false}
+					validateOnBlur={false}
+					validationSchema={validationSchema}
+					initialValues={initailValue}
+					onSubmit={handleSubmit}>
+					{({ isSubmitting, handleChange, handleBlur, values }) => (
+						<Form>
+							<div className=" Mobile m-auto md:Center ">
+								<div className="   sm:p-6 p-5 rounded-lg border">
+									<h1 className=" sm:text-2xl  tex-xl  text-orange-400 font-bold ">
+										Log In Your Account
+									</h1>
 
-					<form className="" onSubmit={formSubmit} action="">
-						<FormComponent
-							onChange={handleInputChange}
-							name={"email"}
-							value={formData.email}
-							type={"email"}
-							label={"Enter Your Email "}
-							placeholder="pty@gmail.com"
-						/>
+									<FormComponent
+										onChange={handleChange}
+										onBlur={handleBlur}
+										value={values.email}
+										name={"email"}
+										type={"email"}
+										label={"Enter Your Email "}
+										placeholder="pty@gmail.com"
+									/>
+									<ErrorMessage
+										component={"p"}
+										className="text-red-400 text-xs mt-1"
+										name="email"
+									/>
 
-						<FormComponent
-							name={"password"}
-							onChange={handleInputChange}
-							value={formData.password}
-							type={"password"}
-							label={"Enter Your password "}
-						/>
+									<FormComponent
+										name={"password"}
+										onChange={handleChange}
+										onBlur={handleBlur}
+										value={values.password}
+										type={"password"}
+										label={"Enter Your password "}
+									/>
 
-						<ButtonComponent type={"submit"} name={"login"} label={"LOG IN"} />
-					</form>
+									<ErrorMessage
+										component={"p"}
+										className="text-red-400 text-xs mt-1"
+										name="password"
+									/>
 
-					<p className="  mt-5 sm:text-sm  text-xs">
-						You Don't Have Account Register{" "}
-						<span
-							onClick={() => nav("/register")}
-							className=" active:scale-75  select-none underline text-orange-400 ">
-							Register
-						</span>
-					</p>
-				</div>
-			</div>
+									<ButtonComponent
+										disabled={isSubmitting}
+										type={"submit"}
+										name={"login"}
+										label={"LOG IN"}
+									/>
+
+									<p className="  mt-5 font-medium text-gray-700 sm:text-sm  text-xs">
+										You Don't Have Account Register{" "}
+										<span
+											onClick={() => nav("/register")}
+											className=" active:scale-75  select-none underline text-orange-400 ">
+											Register
+										</span>
+									</p>
+								</div>
+							</div>
+						</Form>
+					)}
+				</Formik>
+			</AuthGuard>
 		</div>
 	);
 };

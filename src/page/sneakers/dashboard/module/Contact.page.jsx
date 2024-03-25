@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FaGithub, FaInstagram } from "react-icons/fa6";
@@ -11,10 +11,18 @@ import { IoMdMail } from "react-icons/io";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 
 import { CiTwitter } from "react-icons/ci";
+import { SneakerContext } from "../../../../service/store/SneakerContextProvider";
 
 const ContactPage = () => {
+	const { contactToggle } = useContext(SneakerContext);
+
 	return (
-		<div className="">
+		<div
+			id="contact"
+			className={`${
+				contactToggle &&
+				"animate__fadeInUp duration-1000 transition-transform animate__animated "
+			}`}>
 			<div className=" flex items-start  flex-col sm:flex-row  gap-5   border-b-gray-500 pb-4  border-b ">
 				<div className="hidden w-full sm:w-[20%] sm:flex sm:me-20 sm:flex-col">
 					<div className=" flex ">

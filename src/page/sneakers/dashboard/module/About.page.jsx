@@ -1,16 +1,24 @@
 /** @format */
 
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import useFetch from "../../../../hook/useFetch";
 import { ImageService } from "../../../../service/images.service";
+import { SneakerContext } from "../../../../service/store/SneakerContextProvider";
 
 const AboutPage = () => {
 	const { data } = useFetch(ImageService, "personalimage");
-	console.log(data);
+
+	const { aboutToggle, setaboutToggle } = useContext(SneakerContext);
+
 	return (
-		<section id="about">
+		<section
+			className={` ${
+				aboutToggle &&
+				"animate__bounceInLeft animate__animated duration-1000 transition-transform "
+			}`}
+			id="about">
 			<div className=" w-full about sm:w-[65%] mx-auto h-screen  ">
 				<div className="flex flex-col gap-3 align-middle items-center">
 					<div className="animate__bounceInLeft bodyFont flex flex-col gap-1 sm:gap-0  animate__animated   duration-700 transition-transform ">

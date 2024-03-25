@@ -15,6 +15,16 @@ const NavComponent = () => {
 	// 	state : { AuthenticateData },
 	// } = useLocation();
 	const [toggle, settoggle] = useState(false);
+	const { aboutToggle, setaboutToggle, setContactToggle, contactToggle } =
+		useContext(SneakerContext);
+
+	const handleAbout = () => {
+		setaboutToggle(!aboutToggle);
+	};
+
+	const handleContact = () => {
+		setContactToggle(!contactToggle);
+	};
 
 	const nav = useNavigate();
 	const {
@@ -30,13 +40,6 @@ const NavComponent = () => {
 	const toggleMenu = () => {
 		settoggle(!toggle);
 	};
-
-	useEffect(() => {
-		const checkingAuth = localStorage.getItem("auth");
-		if (!checkingAuth) {
-			nav("/");
-		}
-	}, []);
 
 	const [search, setSearch] = useState("");
 
@@ -77,7 +80,7 @@ const NavComponent = () => {
 	};
 
 	const handleLogout = () => {
-		const remove = localStorage.removeItem("auth");
+		const remove = localStorage.removeItem("token");
 
 		nav("/");
 	};
@@ -91,13 +94,6 @@ const NavComponent = () => {
 		nav(-1);
 		settoggle(!toggle);
 	};
-
-	useEffect(() => {
-		const data = localStorage.getItem("auth");
-		if (!data) {
-			nav("/");
-		}
-	}, []);
 
 	return (
 		<div>
@@ -119,24 +115,34 @@ const NavComponent = () => {
 							</Link>
 						</li>
 
-						<li className="text-gray-500 tracking-wide select-none active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
+						<li className="text-gray-500 tracking-wide select-none hover:text-orange-500 hover:font-medium   active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
 							<NavLink to="/dashboard/collections">Collections</NavLink>
 						</li>
 
-						<li className="text-gray-500 tracking-wide select-none active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
+						<li className="text-gray-500 tracking-wide select-none hover:text-orange-500 hover:font-medium active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
 							<NavLink to="/dashboard/men">Men</NavLink>
 						</li>
 
-						<li className="text-gray-500 tracking-wide select-none active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
+						<li className="text-gray-500 tracking-wide select-none hover:text-orange-500 hover:font-medium active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
 							<NavLink to="/dashboard/women">Women</NavLink>
 						</li>
 
-						<li className="text-gray-500 tracking-wide select-none active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
-							<a href="#about">About</a>
+						<li className="text-gray-500 tracking-wide select-none hover:text-orange-500 hover:font-medium active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
+							<a
+								className=" duration-1000 "
+								onClick={handleAbout}
+								href="#about">
+								About
+							</a>
 						</li>
 
-						<li className="text-gray-500 tracking-wide select-none active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
-							<a href="#contact">Contact</a>
+						<li className="text-gray-500 tracking-wide select-none active:border-b-2   hover:text-orange-500 hover:font-medium transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
+							<a
+								className=" duration-1000 "
+								onClick={handleContact}
+								href="#contact">
+								Contact
+							</a>
 						</li>
 					</ul>
 
@@ -382,18 +388,18 @@ const NavComponent = () => {
 								aria-labelledby="dropdownInformationButton">
 								<li
 									onClick={handleDashboard}
-									className="block px-4 py-2 hover:bg-orange-300 dark:hover:bg-gray-600 dark:hover:text-white">
+									className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
 									Dashboard
 								</li>
 								<li>
 									<a
 										href="#"
-										className="block px-4 py-2 hover:bg-orange-300 dark:hover:bg-gray-600 dark:hover:text-white">
+										className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
 										Settings
 									</a>
 								</li>
 							</ul>
-							<div className="py-2  hover:bg-orange-300 dark:hover:bg-gray-600 flex items-center justify-between">
+							<div className="py-2  hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center justify-between">
 								<a
 									href="#"
 									className="block px-4 py-2 text-sm text-gray-700  dark:text-gray-200 dark:hover:text-white">
